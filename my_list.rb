@@ -7,10 +7,12 @@ class MyList
     @list = items
   end
 
-  def each(&block)
+  def each
+    return to_enum(:each) unless block_given?
+
     i = 0
     while i < @list.size
-      block.call(@list[i])
+      yield(@list[i])
       i += 1
     end
   end
