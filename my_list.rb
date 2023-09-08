@@ -8,7 +8,11 @@ class MyList
   end
 
   def each(&block)
-    @list.each(&block)
+    i = 0
+    while i < @list.size
+      block.call(@list[i])
+      i += 1
+    end
   end
 end
 
